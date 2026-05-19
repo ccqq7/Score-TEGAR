@@ -3,7 +3,6 @@
 
 # TEGAR Main Model Code
 
-This folder contains only the main model-construction code for the final method. It excludes training scripts, evaluation scripts, dataset loaders, experiment orchestration, result analysis, logs, checkpoints, cached features, and paper-generation utilities.
 
 ## Core Entry Point
 
