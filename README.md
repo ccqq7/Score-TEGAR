@@ -1,6 +1,6 @@
-<<<<<<< HEAD
+
 # Score-TERAG
-=======
+
 # TEGAR Main Model Code
 
 This folder contains only the main model-construction code for the final method. It excludes training scripts, evaluation scripts, dataset loaders, experiment orchestration, result analysis, logs, checkpoints, cached features, and paper-generation utilities.
@@ -65,4 +65,3 @@ pip install -r requirements.txt
 
 The code expects PyTorch and `open_clip_torch` for CLIP/GeoRSCLIP loading.
 
->>>>>>> b3b1843 (提交文件)
