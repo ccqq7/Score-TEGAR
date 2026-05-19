@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.idea/
+.vscode/
+data/
+pretrained/
+checkpoints/
+*.pt
+*.pth
+*.ckpt
