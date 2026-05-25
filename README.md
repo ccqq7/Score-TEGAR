@@ -1,5 +1,5 @@
 
-# Score-TERAG
+# Score-TEGAR
 
 # TEGAR Main Model Code
 
