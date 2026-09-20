@@ -1,7 +1,5 @@
 # Score-TEGAR
 
-Main model implementation for remote-sensing zero-shot multi-label classification, synchronized with the revised local model on 2026-09-20.
-
 This repository contains the model and its supporting Python modules. Training, evaluation, dataset preparation, experiment orchestration, data, checkpoints, and results are outside this release's scope.
 
 ## Current Model
