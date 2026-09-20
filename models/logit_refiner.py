@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import math
+from collections.abc import Sequence
 
 import torch
 import torch.nn as nn
@@ -8,7 +9,37 @@ import torch.nn.functional as F
 
 from models.classifier import load_text_anchors
 from models.clip_backbone import CLIPVisualBackbone
-from models.tegar import HomogeneousGAT, TEGAR
+from models.tegar import HomogeneousGAT, ScoreGraphPM, TEGAR
+
+
+class StrictScoreGraphPM(ScoreGraphPM):
+    """Parameter-matched homogeneous control with effective relation ablations.
+
+    ``ScoreGraphPM`` merges active typed adjacencies and feeds the union to all
+    relation branches. For strict ablations, a disabled branch itself must stay
+    zero after that merge; otherwise the configuration records an ablation that
+    the forward pass did not perform.
+    """
+
+    def _adjacency(self) -> dict[str, torch.Tensor]:
+        typed_adjacency = TEGAR._adjacency(self)
+        active_names = [
+            name for name in self.relation_names if name not in self.disabled_relations
+        ]
+        if not active_names:
+            raise RuntimeError("Parameter-matched control requires at least one active relation")
+        merged = typed_adjacency[active_names[0]]
+        for relation_name in active_names[1:]:
+            merged = torch.maximum(merged, typed_adjacency[relation_name])
+        merged = torch.maximum(merged, merged.transpose(-1, -2))
+        return {
+            relation_name: (
+                torch.zeros_like(merged)
+                if relation_name in self.disabled_relations
+                else merged
+            )
+            for relation_name in self.relation_names
+        }
 
 
 class ProbabilitySpaceRefiner(nn.Module):
@@ -32,18 +63,29 @@ class ProbabilitySpaceRefiner(nn.Module):
         scene_expert_count: int = 4,
         use_relation_consensus: bool = True,
         negative_exclusion: bool = True,
+        exclusion_mode: str | None = None,
+        disabled_relations: Sequence[str] = (),
+        strict_exclusion_score: bool = True,
+        gate_initial_activation: float = 0.5,
+        gate_control: str | None = None,
+        gate_shuffle_seed: int = 20260826,
     ) -> None:
         super().__init__()
-        if graph_type not in {"tegar", "homo_gat", "none"}:
+        if graph_type not in {"tegar", "homo_gat", "homo_pm", "none"}:
             raise ValueError(f"Unsupported graph_type: {graph_type}")
 
         self.graph_type = graph_type
         self.use_cached_features = bool(use_cached_features)
         self.num_labels = int(num_labels)
-        self.fixed_gate = bool(fixed_gate)
+        self.gate_control = gate_control or ("fixed" if fixed_gate else "learned")
+        self.fixed_gate = self.gate_control == "fixed"
+        self.gate_shuffle_seed = int(gate_shuffle_seed)
         self.learnable_temperature = bool(learnable_temperature)
         self.use_relation_consensus = bool(use_relation_consensus)
         self.negative_exclusion = bool(negative_exclusion)
+        self.exclusion_mode = exclusion_mode or ("negative" if negative_exclusion else "positive")
+        self.strict_exclusion_score = bool(strict_exclusion_score)
+        self.disabled_relations = frozenset(disabled_relations)
         self.backbone = None
         if not self.use_cached_features:
             self.backbone = CLIPVisualBackbone(
@@ -79,6 +121,29 @@ class ProbabilitySpaceRefiner(nn.Module):
                 use_pairnorm=False,
                 fixed_gate=fixed_gate,
                 negative_exclusion=negative_exclusion,
+                exclusion_mode=self.exclusion_mode,
+                disabled_relations=self.disabled_relations,
+                gate_initial_activation=gate_initial_activation,
+                gate_control=gate_control,
+                gate_shuffle_seed=gate_shuffle_seed,
+            )
+        elif graph_type == "homo_pm":
+            self.graph = StrictScoreGraphPM(
+                kg_path=kg_path,
+                hidden_dim=hidden_dim,
+                visual_dim=self.feat_dim,
+                num_layers=num_layers,
+                dropout=dropout,
+                exclusion_beta_init=exclusion_beta_init,
+                apply_layernorm=True,
+                apply_activation=True,
+                use_pairnorm=False,
+                fixed_gate=fixed_gate,
+                exclusion_mode=self.exclusion_mode,
+                disabled_relations=self.disabled_relations,
+                gate_initial_activation=gate_initial_activation,
+                gate_control=gate_control,
+                gate_shuffle_seed=gate_shuffle_seed,
             )
         elif graph_type == "homo_gat":
             self.graph = HomogeneousGAT(
@@ -96,8 +161,12 @@ class ProbabilitySpaceRefiner(nn.Module):
         self.delta_head = nn.Linear(hidden_dim, 1)
         nn.init.xavier_uniform_(self.delta_head.weight, gain=0.01)
         nn.init.zeros_(self.delta_head.bias)
-        self.relation_names = ("often_cooccur", "statistical_exclusion", "hierarchical")
-        if graph_type == "tegar":
+        self.relation_names = (
+            tuple(self.graph.relation_names)
+            if graph_type in {"tegar", "homo_pm"}
+            else ("often_cooccur", "statistical_exclusion", "hierarchical")
+        )
+        if graph_type in {"tegar", "homo_pm"}:
             self.scene_expert_count = max(1, int(scene_expert_count))
             self.scene_router = nn.Sequential(
                 nn.Linear(self.feat_dim, hidden_dim),
@@ -154,7 +223,7 @@ class ProbabilitySpaceRefiner(nn.Module):
         node_features = self.node_encoder(node_input)
 
         graph_aux: dict = {}
-        if self.graph_type == "tegar":
+        if self.graph_type in {"tegar", "homo_pm"}:
             refined, graph_aux = self.graph(node_features, visual_cls, return_aux=True)
         elif self.graph_type == "homo_gat":
             if return_aux:
@@ -166,7 +235,7 @@ class ProbabilitySpaceRefiner(nn.Module):
 
         raw_delta = self.delta_head(refined).squeeze(-1)
         relation_delta = None
-        if self.graph_type == "tegar" and self.relation_delta_heads is not None:
+        if self.graph_type in {"tegar", "homo_pm"} and self.relation_delta_heads is not None:
             relation_messages = graph_aux.get("relation_messages")
             gate_values = graph_aux.get("gate_values")
             if relation_messages is not None and gate_values is not None:
@@ -177,7 +246,19 @@ class ProbabilitySpaceRefiner(nn.Module):
                 relation_weights = relation_weights / relation_weights.sum(dim=-1, keepdim=True).clamp_min(1e-6)
                 scene_weights = torch.softmax(self.scene_router(visual_cls), dim=-1)
                 relation_delta_parts = []
+                relation_delta_names = []
                 for relation_name in self.relation_names:
+                    # Keep disabled heads instantiated for exact parameter
+                    # matching, but do not execute them: a zero relation state
+                    # would otherwise leak each Linear head's bias.
+                    if relation_name in self.disabled_relations:
+                        continue
+                    # In the strict model, exclusion has exactly one direct
+                    # score path: the monotonic contribution exposed by TEGAR.
+                    # Keep this unused head instantiated for parameter-matched
+                    # controls, but never route arbitrary-signed output through it.
+                    if self.strict_exclusion_score and relation_name == "statistical_exclusion":
+                        continue
                     relation_state = relation_messages.get(relation_name)
                     if relation_state is None:
                         continue
@@ -188,9 +269,15 @@ class ProbabilitySpaceRefiner(nn.Module):
                     expert_tensor = torch.cat(expert_outputs, dim=-1)
                     delta_part = (expert_tensor * scene_weights.unsqueeze(1)).sum(dim=-1)
                     relation_delta_parts.append(delta_part.unsqueeze(-1))
+                    relation_delta_names.append(relation_name)
                 if relation_delta_parts:
                     relation_delta_tensor = torch.cat(relation_delta_parts, dim=-1)
-                    weighted_relation_delta = relation_delta_tensor * relation_weights.unsqueeze(1)
+                    relation_indices = [self.relation_names.index(name) for name in relation_delta_names]
+                    active_relation_weights = relation_weights[:, relation_indices]
+                    active_relation_weights = active_relation_weights / active_relation_weights.sum(
+                        dim=-1, keepdim=True
+                    ).clamp_min(1e-6)
+                    weighted_relation_delta = relation_delta_tensor * active_relation_weights.unsqueeze(1)
                     relation_delta = weighted_relation_delta.sum(dim=-1)
                     # Typed-edge updates help when relation branches agree on the
                     # correction direction; conflicting branches are likely noise.
@@ -199,6 +286,9 @@ class ProbabilitySpaceRefiner(nn.Module):
                     else:
                         relation_consensus = torch.ones_like(relation_delta)
                     raw_delta = raw_delta + self.relation_fusion_scale * relation_consensus * relation_delta
+        explicit_exclusion = graph_aux.get("exclusion_score_contribution")
+        if self.strict_exclusion_score and explicit_exclusion is not None:
+            raw_delta = raw_delta + explicit_exclusion
         uncertainty_gate = self.min_uncertainty_gate + (1.0 - self.min_uncertainty_gate) * uncertainty
         score_delta = uncertainty_gate * raw_delta
         refined_scores = clip_scores + score_delta
@@ -228,6 +318,11 @@ class ProbabilitySpaceRefiner(nn.Module):
             aux["relation_fusion_scale"] = float(self.relation_fusion_scale.detach().cpu().item())
             aux["scene_weights"] = scene_weights
             aux["relation_consensus"] = relation_consensus
+        if explicit_exclusion is not None:
+            applied_exclusion = uncertainty_gate * explicit_exclusion
+            aux["explicit_exclusion_score_contribution"] = explicit_exclusion
+            aux["applied_exclusion_score_contribution"] = applied_exclusion
+            aux["strict_exclusion_score"] = self.strict_exclusion_score
         return refined_scores, score_delta, aux
 
     def forward_from_features(self, visual_cls: torch.Tensor, return_aux: bool = False):

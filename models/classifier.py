@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import math
+from collections.abc import Sequence
 from pathlib import Path
 
 import torch
@@ -1103,6 +1104,12 @@ def create_model(
     delta_scale_init: float = 1.0,
     use_explicit_propagation: bool = True,
     use_cached_features: bool = False,
+    exclusion_mode: str | None = None,
+    disabled_relations: Sequence[str] = (),
+    strict_exclusion_score: bool = True,
+    gate_initial_activation: float = 0.5,
+    gate_control: str | None = None,
+    gate_shuffle_seed: int = 20260826,
 ) -> nn.Module:
     if mode == "baseline":
         return BaselineClassifier(num_labels=num_labels, backbone=backbone, pretrained=pretrained)
@@ -1143,6 +1150,46 @@ def create_model(
             trainable_projections=False,
             trainable_logit_scale=False,
             use_cached_features=use_cached_features,
+        )
+    if mode in {"zs_linear_probe", "zs_clip_adapter"}:
+        from models.controlled_baselines import CachedCLIPAdapter, CachedLinearProbe
+
+        if mode == "zs_linear_probe":
+            return CachedLinearProbe(
+                num_labels=num_labels,
+                text_anchors_path=text_anchors_path,
+            )
+        return CachedCLIPAdapter(
+            num_labels=num_labels,
+            text_anchors_path=text_anchors_path,
+        )
+    if mode == "zs_feature_tegar":
+        from models.controlled_baselines import FeatureTEGAR
+
+        return FeatureTEGAR(
+            num_labels=num_labels,
+            kg_path=kg_path,
+            text_anchors_path=text_anchors_path,
+            hidden_dim=tegar_dim,
+            num_layers=tegar_layers,
+            dropout=dropout,
+            exclusion_beta_init=exclusion_beta_init,
+            exclusion_mode=exclusion_mode,
+            disabled_relations=disabled_relations,
+            gate_initial_activation=gate_initial_activation,
+            gate_control=gate_control,
+            gate_shuffle_seed=gate_shuffle_seed,
+        )
+    if mode == "zs_gcnz_anchor":
+        from models.controlled_baselines import GCNZAnchor
+
+        return GCNZAnchor(
+            num_labels=num_labels,
+            kg_path=kg_path,
+            text_anchors_path=text_anchors_path,
+            hidden_dim=tegar_dim,
+            num_layers=tegar_layers,
+            dropout=dropout,
         )
     if mode == "zs_proj_only":
         return TEGARClassifierGenerator(
@@ -1259,10 +1306,10 @@ def create_model(
         "zs_logit_tegar_fixed_temp",
         "zs_logit_tegar_k2",
         "zs_logit_tegar_k8",
+        "zs_logit_homo_pm",
     }:
         from models.logit_refiner import ProbabilitySpaceRefiner
 
-        logit_refiner_hidden_dim = 128
         graph_type = {
             "zs_logit_tegar": "tegar",
             "zs_logit_homo": "homo_gat",
@@ -1277,6 +1324,7 @@ def create_model(
             "zs_logit_tegar_fixed_temp": "tegar",
             "zs_logit_tegar_k2": "tegar",
             "zs_logit_tegar_k8": "tegar",
+            "zs_logit_homo_pm": "homo_pm",
         }[mode]
         return ProbabilitySpaceRefiner(
             num_labels=num_labels,
@@ -1286,7 +1334,7 @@ def create_model(
             clip_pretrained_path=clip_pretrained_path,
             clip_default_pretrained=clip_default_pretrained,
             graph_type=graph_type,
-            hidden_dim=logit_refiner_hidden_dim,
+            hidden_dim=tegar_dim,
             num_layers=tegar_layers,
             dropout=dropout,
             exclusion_beta_init=exclusion_beta_init,
@@ -1301,6 +1349,16 @@ def create_model(
             }.get(mode, 4),
             use_relation_consensus=(mode != "zs_logit_tegar_no_consensus"),
             negative_exclusion=(mode != "zs_logit_tegar_no_exclusion_neg"),
+            exclusion_mode=(
+                exclusion_mode
+                if exclusion_mode is not None
+                else ("positive" if mode == "zs_logit_tegar_no_exclusion_neg" else "negative")
+            ),
+            disabled_relations=disabled_relations,
+            strict_exclusion_score=strict_exclusion_score,
+            gate_initial_activation=gate_initial_activation,
+            gate_control=gate_control,
+            gate_shuffle_seed=gate_shuffle_seed,
         )
     if mode == "zs_clip_legacy":
         return ZeroShotCLIPBaseline(

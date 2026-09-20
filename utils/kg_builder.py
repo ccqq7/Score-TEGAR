@@ -8,7 +8,14 @@ import torch
 from utils.label_config import filter_kg_payload
 
 
-UNDIRECTED_RELATIONS = {"often_cooccur", "statistical_exclusion"}
+UNDIRECTED_RELATIONS = {
+    "often_cooccur",
+    "statistical_exclusion",
+    # Strict GZSL runs connect every label using text-only information that is
+    # available before any outer-unseen annotation is read.  Keep this relation
+    # separate from empirical co-occurrence so its provenance remains auditable.
+    "semantic_affinity",
+}
 DIRECTED_RELATIONS = {"hierarchical"}
 
 
