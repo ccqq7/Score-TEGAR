@@ -1,0 +1,108 @@
+clip:
+  model_name: "ViT-B-32"
+  pretrained_path: "./pretrained/georsclip/model.pt"
+  default_pretrained: "laion2b_s34b_b79k"
+  feat_dim: 512
+  image_size: 224
+
+data:
+  dataset: "mlrsnet"
+  root: "./MLRSNet"
+  kg_path: "./data/kg_definition.json"
+  text_anchors_path: "./data/text_anchors.pt"
+  visual_prototypes_path: "./data/visual_prototypes.pt"
+  feature_cache_dir: "./data/feature_cache"
+  use_feature_cache: true
+  unseen_labels_file: "./data/splits/split_seed42.json"
+  splits_dir: "./data/splits"
+  excluded_labels: ["stadium"]
+  split_seed: 42
+  split_ratio: [0.7, 0.15, 0.15]
+  train_fraction: 1.0
+  num_workers: 0
+  feature_num_workers: 0
+  force_single_worker_on_windows: true
+  force_single_worker_on_windows_feature: true
+  persistent_workers: true
+  prefetch_factor: 4
+  clip_augment_train: true
+  feature_cache_batch_size: 1024
+  feature_cache_build_num_workers: 0
+
+model:
+  tegar_dim: 512
+  tegar_layers: 2
+  spatial_heads: 4
+  cross_attn_heads: 4
+  exclusion_beta_init: 0.01
+  dropout: 0.1
+  delta_scale_init: 1.0
+
+training:
+  mode: "zs_tegar_gen"
+  batch_size: 8192
+  epochs: 50
+  lr: 1.0e-3
+  weight_decay: 1.0e-4
+  scheduler: "cosine"
+  warmup_epochs: 5
+  freeze_backbone: true
+  channels_last: true
+  cudnn_benchmark: true
+  allow_tf32: true
+  matmul_precision: "high"
+  fused_optimizer: true
+  batch_log_interval: 10
+  auto_tune_batch_size: true
+  auto_tune_probe_batch_size: 1024
+  auto_tune_target_gpu_gb: 10.0
+  auto_tune_safety_margin_gb: 2.0
+  auto_tune_min_batch_size: 1024
+  auto_tune_max_batch_size: 16384
+  auto_tune_multiple: 512
+  lambda_anchor: 0.0
+  lambda_reg: 0.0
+  lambda_anchor_warmup_ratio: 0.1
+  lambda_anchor_warmup_scale: 2.0
+  eval_interval: 1
+  selection_metric: "harmonic_mean"
+  output_dir: "./experiment_results"
+  amp: true
+  tensorboard: true
+  max_train_batches: null
+  max_val_batches: null
+  early_stop: true
+  early_stop_patience: 20
+  early_stop_min_delta: 0.01
+  early_stop_warmup_evals: 5
+  logit_early_stop_patience: 15
+  logit_early_stop_min_delta: 0.001
+  logit_early_stop_warmup_evals: 5
+  # --- New improvements ---
+  # Asymmetric Loss (ASL): handles positive/negative imbalance in multi-label
+  use_asl: true
+  asl_gamma_neg: 4         # focusing parameter for negatives (higher = more suppression)
+  asl_gamma_pos: 0         # focusing parameter for positives (0 = standard CE)
+  asl_clip: 0.05           # probability margin for hard-thresholding easy negatives
+  # Label smoothing: prevents overconfident predictions
+  label_smoothing: 0.02
+  # Mixup: data augmentation via convex combination of samples
+  mixup_alpha: 0.1
+
+eval:
+  batch_size: 8192
+  threshold: 0.5
+  rare_k: 10
+  freq_k: 10
+  output_dir: "./eval_outputs"
+  tsne_perplexity: 8
+  tsne_random_state: 42
+
+zeroshot:
+  n_unseen: 15
+  split_seed: 42
+  seeds: [42, 123, 456, 789, 1024]
+  split_anchor_backbone: "georsclip"
+  min_seen_neighbors: 2
+  min_semantic_neighbors: 2
+  semantic_threshold: 0.3

@@ -1,0 +1,66 @@
+{
+  "schema_version": 2,
+  "protocol_mode": "strict_outer_random_v1",
+  "selection_policy": "uniform_without_replacement",
+  "dataset": "bigearthnet",
+  "seed": 123,
+  "rng": "numpy.random.Generator(PCG64)",
+  "n_labels": 19,
+  "n_seen": 14,
+  "n_unseen": 5,
+  "excluded": [],
+  "label_names": [
+    "Urban fabric",
+    "Industrial or commercial units",
+    "Arable land",
+    "Permanent crops",
+    "Pastures",
+    "Complex cultivation patterns",
+    "Land principally occupied by agriculture, with significant areas of natural vegetation",
+    "Agro-forestry areas",
+    "Broad-leaved forest",
+    "Coniferous forest",
+    "Mixed forest",
+    "Natural grassland and sparsely vegetated areas",
+    "Moors, heathland and sclerophyllous vegetation",
+    "Transitional woodland, shrub",
+    "Beaches, dunes, sands",
+    "Inland wetlands",
+    "Coastal wetlands",
+    "Inland waters",
+    "Marine waters"
+  ],
+  "label_vocabulary": {
+    "file_sha256": "5662edd3689a0bd8d78bc1af8896f8f93960a1089cbe9049363297a46b7bc9d4",
+    "label_names_sha256": "71d9daf909176004891661f3d3f671c3931d77cf4417cd827f15f3ff5a4df676",
+    "source": "train_feature_cache_label_names"
+  },
+  "selection_inputs": [
+    "label_names",
+    "seed",
+    "n_unseen"
+  ],
+  "seen_labels": [
+    "Industrial or commercial units",
+    "Arable land",
+    "Pastures",
+    "Complex cultivation patterns",
+    "Broad-leaved forest",
+    "Coniferous forest",
+    "Mixed forest",
+    "Natural grassland and sparsely vegetated areas",
+    "Moors, heathland and sclerophyllous vegetation",
+    "Beaches, dunes, sands",
+    "Inland wetlands",
+    "Coastal wetlands",
+    "Inland waters",
+    "Marine waters"
+  ],
+  "unseen_labels": [
+    "Urban fabric",
+    "Permanent crops",
+    "Land principally occupied by agriculture, with significant areas of natural vegetation",
+    "Agro-forestry areas",
+    "Transitional woodland, shrub"
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "protocol_mode": "strict_inner_surrogate_v1",
+  "dataset": "chinamas",
+  "outer_seed": 1024,
+  "inner_seed": 101024,
+  "label_names": [
+    "Grassland",
+    "Factory Building",
+    "Greenhouse",
+    "Solid Waste",
+    "Cropland",
+    "Road",
+    "Park",
+    "River",
+    "Lake/Pond",
+    "Woodland",
+    "Basketball Court",
+    "Bare Land",
+    "Dust-proof Net",
+    "Plastic Mulch",
+    "Photovoltaic",
+    "Railway",
+    "Football Field",
+    "Rural Village"
+  ],
+  "seen_labels": [
+    "Grassland",
+    "Cropland",
+    "Park",
+    "Lake/Pond",
+    "Woodland",
+    "Plastic Mulch",
+    "Photovoltaic",
+    "Railway",
+    "Football Field",
+    "Rural Village"
+  ],
+  "unseen_labels": [
+    "Bare Land",
+    "Dust-proof Net",
+    "River",
+    "Factory Building",
+    "Greenhouse",
+    "Solid Waste",
+    "Road",
+    "Basketball Court"
+  ],
+  "selection_seen_labels": [
+    "Grassland",
+    "Cropland",
+    "Park",
+    "Lake/Pond",
+    "Woodland",
+    "Plastic Mulch",
+    "Photovoltaic",
+    "Railway",
+    "Football Field",
+    "Rural Village"
+  ],
+  "selection_unseen_labels": [
+    "Bare Land",
+    "Dust-proof Net",
+    "River"
+  ],
+  "outer_unseen_labels": [
+    "Factory Building",
+    "Greenhouse",
+    "Solid Waste",
+    "Road",
+    "Basketball Court"
+  ],
+  "training_hidden_labels": [
+    "Factory Building",
+    "Greenhouse",
+    "Solid Waste",
+    "Road",
+    "Basketball Court",
+    "Bare Land",
+    "Dust-proof Net",
+    "River"
+  ]
+}

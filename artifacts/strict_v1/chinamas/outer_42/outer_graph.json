@@ -1,0 +1,337 @@
+{
+  "schema_version": 2,
+  "protocol_mode": "strict_train_seen_plus_text_affinity_v1",
+  "dataset": "chinamas",
+  "nodes": [
+    "Grassland",
+    "Factory Building",
+    "Greenhouse",
+    "Solid Waste",
+    "Cropland",
+    "Road",
+    "Park",
+    "River",
+    "Lake/Pond",
+    "Woodland",
+    "Basketball Court",
+    "Bare Land",
+    "Dust-proof Net",
+    "Plastic Mulch",
+    "Photovoltaic",
+    "Railway",
+    "Football Field",
+    "Rural Village"
+  ],
+  "node_count": 18,
+  "edges": {
+    "often_cooccur": [
+      [
+        "Factory Building",
+        "Solid Waste"
+      ],
+      [
+        "Solid Waste",
+        "Dust-proof Net"
+      ]
+    ],
+    "statistical_exclusion": [
+      [
+        "Solid Waste",
+        "Railway"
+      ],
+      [
+        "Cropland",
+        "Park"
+      ],
+      [
+        "Cropland",
+        "Dust-proof Net"
+      ],
+      [
+        "Railway",
+        "Football Field"
+      ]
+    ],
+    "hierarchical": [
+      [
+        "Dust-proof Net",
+        "Road"
+      ],
+      [
+        "Park",
+        "Rural Village"
+      ],
+      [
+        "Football Field",
+        "Rural Village"
+      ]
+    ],
+    "semantic_affinity": [
+      [
+        "Bare Land",
+        "Cropland"
+      ],
+      [
+        "Bare Land",
+        "Dust-proof Net"
+      ],
+      [
+        "Bare Land",
+        "Football Field"
+      ],
+      [
+        "Bare Land",
+        "Grassland"
+      ],
+      [
+        "Bare Land",
+        "Lake/Pond"
+      ],
+      [
+        "Bare Land",
+        "Plastic Mulch"
+      ],
+      [
+        "Bare Land",
+        "Road"
+      ],
+      [
+        "Bare Land",
+        "Woodland"
+      ],
+      [
+        "Basketball Court",
+        "Factory Building"
+      ],
+      [
+        "Basketball Court",
+        "Football Field"
+      ],
+      [
+        "Basketball Court",
+        "Park"
+      ],
+      [
+        "Cropland",
+        "Grassland"
+      ],
+      [
+        "Cropland",
+        "Greenhouse"
+      ],
+      [
+        "Cropland",
+        "Plastic Mulch"
+      ],
+      [
+        "Cropland",
+        "Road"
+      ],
+      [
+        "Cropland",
+        "Rural Village"
+      ],
+      [
+        "Dust-proof Net",
+        "Road"
+      ],
+      [
+        "Dust-proof Net",
+        "Solid Waste"
+      ],
+      [
+        "Factory Building",
+        "Greenhouse"
+      ],
+      [
+        "Factory Building",
+        "Photovoltaic"
+      ],
+      [
+        "Factory Building",
+        "Railway"
+      ],
+      [
+        "Factory Building",
+        "Rural Village"
+      ],
+      [
+        "Factory Building",
+        "Solid Waste"
+      ],
+      [
+        "Football Field",
+        "Grassland"
+      ],
+      [
+        "Football Field",
+        "Park"
+      ],
+      [
+        "Grassland",
+        "Park"
+      ],
+      [
+        "Greenhouse",
+        "Park"
+      ],
+      [
+        "Lake/Pond",
+        "Park"
+      ],
+      [
+        "Lake/Pond",
+        "River"
+      ],
+      [
+        "Park",
+        "Photovoltaic"
+      ],
+      [
+        "Park",
+        "Railway"
+      ],
+      [
+        "Park",
+        "Road"
+      ],
+      [
+        "Park",
+        "Woodland"
+      ],
+      [
+        "Photovoltaic",
+        "Road"
+      ],
+      [
+        "Plastic Mulch",
+        "Road"
+      ],
+      [
+        "Railway",
+        "Road"
+      ],
+      [
+        "River",
+        "Road"
+      ],
+      [
+        "River",
+        "Rural Village"
+      ],
+      [
+        "Road",
+        "Rural Village"
+      ],
+      [
+        "Road",
+        "Solid Waste"
+      ],
+      [
+        "Road",
+        "Woodland"
+      ],
+      [
+        "Rural Village",
+        "Solid Waste"
+      ]
+    ]
+  },
+  "edge_counts": {
+    "often_cooccur": 2,
+    "statistical_exclusion": 4,
+    "hierarchical": 3
+  },
+  "label_to_index": {
+    "Grassland": 0,
+    "Factory Building": 1,
+    "Greenhouse": 2,
+    "Solid Waste": 3,
+    "Cropland": 4,
+    "Road": 5,
+    "Park": 6,
+    "River": 7,
+    "Lake/Pond": 8,
+    "Woodland": 9,
+    "Basketball Court": 10,
+    "Bare Land": 11,
+    "Dust-proof Net": 12,
+    "Plastic Mulch": 13,
+    "Photovoltaic": 14,
+    "Railway": 15,
+    "Football Field": 16,
+    "Rural Village": 17
+  },
+  "thresholds_used": {
+    "often_pmi": 2.5,
+    "often_min_cooccur": 50,
+    "exclusion_pmi": -2.0,
+    "exclusion_min_freq": 100,
+    "hier_conditional_high": 0.8,
+    "hier_conditional_low": 0.3
+  },
+  "merged_labels": [],
+  "hierarchical_edge_format": "child_to_parent",
+  "edge_provenance": {
+    "schema_version": 1,
+    "protocol_mode": "strict_train_seen_only_v1",
+    "statistics_scope": "train_samples_seen_labels_only",
+    "source": {
+      "kind": "train_feature_cache",
+      "image_split_manifest": {
+        "kind": "embedded_train_feature_cache_manifest",
+        "declared_split": "train"
+      }
+    },
+    "allowed_seen_labels": [
+      "Grassland",
+      "Factory Building",
+      "Solid Waste",
+      "Cropland",
+      "Road",
+      "Park",
+      "River",
+      "Lake/Pond",
+      "Bare Land",
+      "Dust-proof Net",
+      "Railway",
+      "Football Field",
+      "Rural Village"
+    ],
+    "allowed_seen_labels_provenance": {
+      "kind": "file",
+      "file_sha256": "7f822cefa300ef583595b60eedceb98222a075a5db56f1f3f5b240f10eca1ece",
+      "seen_labels_sha256": "ad439a4d9cce7980a3212874ece97d853b84b4256f55707a1b43803a54e570f1",
+      "label_names_sha256": "f0be30a8fe9db03e8afcc772a97a9e24433dd8617015f465cec6b0e0d3071433"
+    },
+    "node_labels_sha256": "f0be30a8fe9db03e8afcc772a97a9e24433dd8617015f465cec6b0e0d3071433",
+    "statistics_labels_sha256": "ad439a4d9cce7980a3212874ece97d853b84b4256f55707a1b43803a54e570f1",
+    "relations": {
+      "often_cooccur": {
+        "criterion": "PMI > 2.5 and joint count > 50",
+        "edge_count": 2,
+        "edges_sha256": "990747e8034d20b62a27e8056621a749270062e0f60de2bd47cbccf2b3717f2f"
+      },
+      "statistical_exclusion": {
+        "criterion": "both counts > 100 and (joint count = 0 or PMI < -2.0)",
+        "edge_count": 4,
+        "edges_sha256": "1b28163ed1cbd70a4e4832dc6d39324a26abe259f5e7575a2bf31d925abf3434"
+      },
+      "hierarchical": {
+        "criterion": "P(parent|child) > 0.8 and P(child|parent) < 0.3",
+        "edge_count": 3,
+        "edges_sha256": "57c366e1027bf4921398de5a3916d275dc2edb03c387388a07b8d40a138b3bc5"
+      }
+    }
+  },
+  "relation_provenance": {
+    "semantic_affinity": {
+      "annotation_independent": true,
+      "source": "basic_text_anchor_cosine",
+      "top_k": 3,
+      "unseen_neighbor_scope": "outer_seen_only",
+      "text_anchors_sha256": "8a96a1725826221d71ab86d69783dadc64d139e13fb1ed3155e05fe153551cbf",
+      "outer_split_sha256": "7f822cefa300ef583595b60eedceb98222a075a5db56f1f3f5b240f10eca1ece"
+    }
+  }
+}

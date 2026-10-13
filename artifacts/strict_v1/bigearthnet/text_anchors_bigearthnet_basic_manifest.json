@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "protocol_mode": "strict_basic_only_v1",
+  "dataset": "bigearthnet",
+  "label_names": [
+    "Urban fabric",
+    "Industrial or commercial units",
+    "Arable land",
+    "Permanent crops",
+    "Pastures",
+    "Complex cultivation patterns",
+    "Land principally occupied by agriculture, with significant areas of natural vegetation",
+    "Agro-forestry areas",
+    "Broad-leaved forest",
+    "Coniferous forest",
+    "Mixed forest",
+    "Natural grassland and sparsely vegetated areas",
+    "Moors, heathland and sclerophyllous vegetation",
+    "Transitional woodland, shrub",
+    "Beaches, dunes, sands",
+    "Inland wetlands",
+    "Coastal wetlands",
+    "Inland waters",
+    "Marine waters"
+  ],
+  "label_names_sha256": "71d9daf909176004891661f3d3f671c3931d77cf4417cd827f15f3ff5a4df676",
+  "anchor_sha256": "995a07d5ee97ce7745a78addcacade66e65bf4530b305970a755019f33a1b997",
+  "anchor_shape": [
+    19,
+    512
+  ],
+  "base_templates_used": [
+    "a satellite image of {}",
+    "an aerial photograph of {}",
+    "a remote sensing image of {}",
+    "a satellite image with {} in it",
+    "an aerial photograph containing {}",
+    "{} visible in a remote sensing scene"
+  ],
+  "cooccur_templates_used": [],
+  "clip_model": "ViT-B-32",
+  "clip_default_pretrained": "laion2b_s34b_b79k"
+}

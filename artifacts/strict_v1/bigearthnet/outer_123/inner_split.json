@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "protocol_mode": "strict_inner_surrogate_v1",
+  "dataset": "bigearthnet",
+  "outer_seed": 123,
+  "inner_seed": 100123,
+  "label_names": [
+    "Urban fabric",
+    "Industrial or commercial units",
+    "Arable land",
+    "Permanent crops",
+    "Pastures",
+    "Complex cultivation patterns",
+    "Land principally occupied by agriculture, with significant areas of natural vegetation",
+    "Agro-forestry areas",
+    "Broad-leaved forest",
+    "Coniferous forest",
+    "Mixed forest",
+    "Natural grassland and sparsely vegetated areas",
+    "Moors, heathland and sclerophyllous vegetation",
+    "Transitional woodland, shrub",
+    "Beaches, dunes, sands",
+    "Inland wetlands",
+    "Coastal wetlands",
+    "Inland waters",
+    "Marine waters"
+  ],
+  "seen_labels": [
+    "Industrial or commercial units",
+    "Arable land",
+    "Pastures",
+    "Complex cultivation patterns",
+    "Broad-leaved forest",
+    "Coniferous forest",
+    "Natural grassland and sparsely vegetated areas",
+    "Moors, heathland and sclerophyllous vegetation",
+    "Beaches, dunes, sands",
+    "Inland waters",
+    "Marine waters"
+  ],
+  "unseen_labels": [
+    "Coastal wetlands",
+    "Inland wetlands",
+    "Mixed forest",
+    "Urban fabric",
+    "Permanent crops",
+    "Land principally occupied by agriculture, with significant areas of natural vegetation",
+    "Agro-forestry areas",
+    "Transitional woodland, shrub"
+  ],
+  "selection_seen_labels": [
+    "Industrial or commercial units",
+    "Arable land",
+    "Pastures",
+    "Complex cultivation patterns",
+    "Broad-leaved forest",
+    "Coniferous forest",
+    "Natural grassland and sparsely vegetated areas",
+    "Moors, heathland and sclerophyllous vegetation",
+    "Beaches, dunes, sands",
+    "Inland waters",
+    "Marine waters"
+  ],
+  "selection_unseen_labels": [
+    "Coastal wetlands",
+    "Inland wetlands",
+    "Mixed forest"
+  ],
+  "outer_unseen_labels": [
+    "Urban fabric",
+    "Permanent crops",
+    "Land principally occupied by agriculture, with significant areas of natural vegetation",
+    "Agro-forestry areas",
+    "Transitional woodland, shrub"
+  ],
+  "training_hidden_labels": [
+    "Urban fabric",
+    "Permanent crops",
+    "Land principally occupied by agriculture, with significant areas of natural vegetation",
+    "Agro-forestry areas",
+    "Transitional woodland, shrub",
+    "Coastal wetlands",
+    "Inland wetlands",
+    "Mixed forest"
+  ]
+}

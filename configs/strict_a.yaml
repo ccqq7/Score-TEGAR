@@ -1,0 +1,94 @@
+protocol:
+  name: jag_strict_inductive_v1
+  legacy_mode: false
+  outer_split_seeds:
+  - 42
+  - 123
+  - 456
+  - 789
+  - 1024
+  training_seeds:
+  - 0
+  - 1
+  - 2
+  inner_surrogate_fraction: 0.2
+  inner_seed_offset: 100000
+  image_split_seed: 42
+  outer_label_selection: uniform_random
+  graph_sample_scope: train_only
+  graph_label_scope: outer_seen_only
+  anchor_mode: basic
+  cooccur_prompts: false
+  semantic_affinity_top_k: 3
+  selection_metric: harmonic_mean
+  threshold_metric: f1_harmonic_mean
+  threshold_strategy: exact_logit
+  threshold_grid:
+  - 0.05
+  - 0.1
+  - 0.15
+  - 0.2
+  - 0.25
+  - 0.3
+  - 0.35
+  - 0.4
+  - 0.45
+  - 0.5
+  - 0.55
+  - 0.6
+  - 0.65
+  - 0.7
+  - 0.75
+  - 0.8
+  - 0.85
+  - 0.9
+  - 0.95
+  bootstrap_samples: 10000
+  multiple_comparison: holm
+datasets:
+  mlrsnet:
+    data_root: ./datasets_raw/mlrsnet
+    feature_cache_root: ./data/feature_cache/mlrsnet
+    n_unseen: 15
+  bigearthnet:
+    data_root: ./datasets_raw/bigearthnet
+    feature_cache_root: ./data/feature_cache/bigearthnet
+    n_unseen: 5
+  chinamas:
+    data_root: ./datasets_raw/chinamas
+    feature_cache_root: ./data/feature_cache/chinamas
+    n_unseen: 5
+clip:
+  model_name: ViT-B-32
+  pretrained_path: ./pretrained/RS5M_ViT-B-32.pt
+  default_pretrained: laion2b_s34b_b79k
+  image_size: 224
+model:
+  hidden_dim: 128
+  layers: 2
+  dropout: 0.1
+  exclusion_beta_init: 0.01
+  gate_initial_activation: 0.5
+  gate_control: learned
+  gate_shuffle_seed: 73
+training:
+  use_feature_cache: true
+  allow_raw_images: false
+  epochs: 50
+  batch_size: 8192
+  lr: 0.001
+  weight_decay: 0.0001
+  warmup_epochs: 5
+  use_asl: true
+  asl_gamma_neg: 4
+  asl_gamma_pos: 0
+  asl_clip: 0.05
+  label_smoothing: 0.02
+  deterministic: true
+  deterministic_warn_only: false
+methods:
+- score_tegar
+outputs:
+  root: ./results/strict_v1
+  artifacts: ./data/strict_v1
+  legacy_results: ./results/legacy

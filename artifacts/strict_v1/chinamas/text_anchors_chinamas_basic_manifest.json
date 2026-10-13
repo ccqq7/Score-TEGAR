@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "protocol_mode": "strict_basic_only_v1",
+  "dataset": "chinamas",
+  "label_names": [
+    "Grassland",
+    "Factory Building",
+    "Greenhouse",
+    "Solid Waste",
+    "Cropland",
+    "Road",
+    "Park",
+    "River",
+    "Lake/Pond",
+    "Woodland",
+    "Basketball Court",
+    "Bare Land",
+    "Dust-proof Net",
+    "Plastic Mulch",
+    "Photovoltaic",
+    "Railway",
+    "Football Field",
+    "Rural Village"
+  ],
+  "label_names_sha256": "f0be30a8fe9db03e8afcc772a97a9e24433dd8617015f465cec6b0e0d3071433",
+  "anchor_sha256": "65387aa855b6e99af007d1e05cb86a2222fdec69a7fddfd08a1ac611db8122b7",
+  "anchor_shape": [
+    18,
+    512
+  ],
+  "base_templates_used": [
+    "a satellite image of {}",
+    "an aerial photograph of {}",
+    "a remote sensing image of {}",
+    "a satellite image with {} in it",
+    "an aerial photograph containing {}",
+    "{} visible in a remote sensing scene"
+  ],
+  "cooccur_templates_used": [],
+  "clip_model": "ViT-B-32",
+  "clip_default_pretrained": "laion2b_s34b_b79k"
+}

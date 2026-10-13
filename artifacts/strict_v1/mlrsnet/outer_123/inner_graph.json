@@ -1,0 +1,2258 @@
+{
+  "schema_version": 2,
+  "protocol_mode": "strict_train_seen_plus_text_affinity_v1",
+  "dataset": "mlrsnet",
+  "nodes": [
+    "airplane",
+    "airport",
+    "bare soil",
+    "baseball diamond",
+    "basketball court",
+    "beach",
+    "bridge",
+    "buildings",
+    "cars",
+    "chaparral",
+    "cloud",
+    "containers",
+    "crosswalk",
+    "dense residential area",
+    "desert",
+    "dock",
+    "factory",
+    "field",
+    "football field",
+    "forest",
+    "freeway",
+    "golf course",
+    "grass",
+    "greenhouse",
+    "gully",
+    "habor",
+    "intersection",
+    "island",
+    "lake",
+    "mobile home",
+    "mountain",
+    "overpass",
+    "park",
+    "parking lot",
+    "parkway",
+    "pavement",
+    "railway",
+    "railway station",
+    "river",
+    "road",
+    "roundabout",
+    "runway",
+    "sand",
+    "sea",
+    "ships",
+    "snow",
+    "snowberg",
+    "sparse residential area",
+    "swimming pool",
+    "tennis court",
+    "terrace",
+    "track",
+    "trail",
+    "transmission tower",
+    "trees",
+    "water",
+    "wetland",
+    "wind turbine"
+  ],
+  "node_count": 58,
+  "edges": {
+    "often_cooccur": [
+      [
+        "airport",
+        "runway"
+      ],
+      [
+        "beach",
+        "sand"
+      ],
+      [
+        "factory",
+        "overpass"
+      ],
+      [
+        "greenhouse",
+        "gully"
+      ],
+      [
+        "greenhouse",
+        "lake"
+      ],
+      [
+        "greenhouse",
+        "overpass"
+      ],
+      [
+        "greenhouse",
+        "park"
+      ],
+      [
+        "greenhouse",
+        "parkway"
+      ],
+      [
+        "greenhouse",
+        "railway station"
+      ],
+      [
+        "greenhouse",
+        "runway"
+      ],
+      [
+        "greenhouse",
+        "snowberg"
+      ],
+      [
+        "greenhouse",
+        "sparse residential area"
+      ],
+      [
+        "greenhouse",
+        "tennis court"
+      ],
+      [
+        "greenhouse",
+        "terrace"
+      ],
+      [
+        "greenhouse",
+        "transmission tower"
+      ],
+      [
+        "gully",
+        "lake"
+      ],
+      [
+        "gully",
+        "overpass"
+      ],
+      [
+        "gully",
+        "park"
+      ],
+      [
+        "gully",
+        "parkway"
+      ],
+      [
+        "gully",
+        "railway station"
+      ],
+      [
+        "gully",
+        "river"
+      ],
+      [
+        "gully",
+        "runway"
+      ],
+      [
+        "gully",
+        "snow"
+      ],
+      [
+        "gully",
+        "snowberg"
+      ],
+      [
+        "gully",
+        "sparse residential area"
+      ],
+      [
+        "gully",
+        "tennis court"
+      ],
+      [
+        "gully",
+        "terrace"
+      ],
+      [
+        "gully",
+        "track"
+      ],
+      [
+        "gully",
+        "transmission tower"
+      ],
+      [
+        "lake",
+        "overpass"
+      ],
+      [
+        "lake",
+        "park"
+      ],
+      [
+        "lake",
+        "parkway"
+      ],
+      [
+        "lake",
+        "railway station"
+      ],
+      [
+        "lake",
+        "runway"
+      ],
+      [
+        "lake",
+        "snow"
+      ],
+      [
+        "lake",
+        "snowberg"
+      ],
+      [
+        "lake",
+        "sparse residential area"
+      ],
+      [
+        "lake",
+        "tennis court"
+      ],
+      [
+        "lake",
+        "terrace"
+      ],
+      [
+        "lake",
+        "track"
+      ],
+      [
+        "lake",
+        "transmission tower"
+      ],
+      [
+        "overpass",
+        "park"
+      ],
+      [
+        "overpass",
+        "parkway"
+      ],
+      [
+        "overpass",
+        "runway"
+      ],
+      [
+        "overpass",
+        "snowberg"
+      ],
+      [
+        "overpass",
+        "sparse residential area"
+      ],
+      [
+        "overpass",
+        "tennis court"
+      ],
+      [
+        "overpass",
+        "terrace"
+      ],
+      [
+        "overpass",
+        "transmission tower"
+      ],
+      [
+        "park",
+        "parkway"
+      ],
+      [
+        "park",
+        "railway station"
+      ],
+      [
+        "park",
+        "river"
+      ],
+      [
+        "park",
+        "runway"
+      ],
+      [
+        "park",
+        "snow"
+      ],
+      [
+        "park",
+        "snowberg"
+      ],
+      [
+        "park",
+        "sparse residential area"
+      ],
+      [
+        "park",
+        "swimming pool"
+      ],
+      [
+        "park",
+        "tennis court"
+      ],
+      [
+        "park",
+        "terrace"
+      ],
+      [
+        "park",
+        "track"
+      ],
+      [
+        "park",
+        "transmission tower"
+      ],
+      [
+        "parkway",
+        "railway"
+      ],
+      [
+        "parkway",
+        "railway station"
+      ],
+      [
+        "parkway",
+        "river"
+      ],
+      [
+        "parkway",
+        "runway"
+      ],
+      [
+        "parkway",
+        "sand"
+      ],
+      [
+        "parkway",
+        "snow"
+      ],
+      [
+        "parkway",
+        "snowberg"
+      ],
+      [
+        "parkway",
+        "sparse residential area"
+      ],
+      [
+        "parkway",
+        "swimming pool"
+      ],
+      [
+        "parkway",
+        "tennis court"
+      ],
+      [
+        "parkway",
+        "terrace"
+      ],
+      [
+        "parkway",
+        "track"
+      ],
+      [
+        "parkway",
+        "transmission tower"
+      ],
+      [
+        "railway",
+        "railway station"
+      ],
+      [
+        "railway",
+        "river"
+      ],
+      [
+        "railway",
+        "runway"
+      ],
+      [
+        "railway",
+        "snow"
+      ],
+      [
+        "railway",
+        "snowberg"
+      ],
+      [
+        "railway",
+        "sparse residential area"
+      ],
+      [
+        "railway",
+        "tennis court"
+      ],
+      [
+        "railway",
+        "terrace"
+      ],
+      [
+        "railway",
+        "transmission tower"
+      ],
+      [
+        "railway station",
+        "river"
+      ],
+      [
+        "railway station",
+        "runway"
+      ],
+      [
+        "railway station",
+        "snow"
+      ],
+      [
+        "railway station",
+        "snowberg"
+      ],
+      [
+        "railway station",
+        "sparse residential area"
+      ],
+      [
+        "railway station",
+        "swimming pool"
+      ],
+      [
+        "railway station",
+        "tennis court"
+      ],
+      [
+        "railway station",
+        "terrace"
+      ],
+      [
+        "railway station",
+        "track"
+      ],
+      [
+        "railway station",
+        "transmission tower"
+      ],
+      [
+        "river",
+        "runway"
+      ],
+      [
+        "river",
+        "sand"
+      ],
+      [
+        "river",
+        "snow"
+      ],
+      [
+        "river",
+        "snowberg"
+      ],
+      [
+        "river",
+        "sparse residential area"
+      ],
+      [
+        "river",
+        "swimming pool"
+      ],
+      [
+        "river",
+        "tennis court"
+      ],
+      [
+        "river",
+        "terrace"
+      ],
+      [
+        "river",
+        "track"
+      ],
+      [
+        "river",
+        "transmission tower"
+      ],
+      [
+        "runway",
+        "snow"
+      ],
+      [
+        "runway",
+        "snowberg"
+      ],
+      [
+        "runway",
+        "sparse residential area"
+      ],
+      [
+        "runway",
+        "swimming pool"
+      ],
+      [
+        "runway",
+        "tennis court"
+      ],
+      [
+        "runway",
+        "terrace"
+      ],
+      [
+        "runway",
+        "track"
+      ],
+      [
+        "runway",
+        "transmission tower"
+      ],
+      [
+        "sand",
+        "sparse residential area"
+      ],
+      [
+        "snow",
+        "snowberg"
+      ],
+      [
+        "snow",
+        "sparse residential area"
+      ],
+      [
+        "snow",
+        "swimming pool"
+      ],
+      [
+        "snow",
+        "tennis court"
+      ],
+      [
+        "snow",
+        "terrace"
+      ],
+      [
+        "snow",
+        "track"
+      ],
+      [
+        "snow",
+        "transmission tower"
+      ],
+      [
+        "snowberg",
+        "sparse residential area"
+      ],
+      [
+        "snowberg",
+        "swimming pool"
+      ],
+      [
+        "snowberg",
+        "tennis court"
+      ],
+      [
+        "snowberg",
+        "terrace"
+      ],
+      [
+        "snowberg",
+        "track"
+      ],
+      [
+        "snowberg",
+        "transmission tower"
+      ],
+      [
+        "sparse residential area",
+        "swimming pool"
+      ],
+      [
+        "sparse residential area",
+        "tennis court"
+      ],
+      [
+        "sparse residential area",
+        "terrace"
+      ],
+      [
+        "sparse residential area",
+        "track"
+      ],
+      [
+        "sparse residential area",
+        "transmission tower"
+      ],
+      [
+        "swimming pool",
+        "tennis court"
+      ],
+      [
+        "swimming pool",
+        "terrace"
+      ],
+      [
+        "swimming pool",
+        "track"
+      ],
+      [
+        "swimming pool",
+        "transmission tower"
+      ],
+      [
+        "tennis court",
+        "terrace"
+      ],
+      [
+        "tennis court",
+        "track"
+      ],
+      [
+        "tennis court",
+        "transmission tower"
+      ],
+      [
+        "terrace",
+        "track"
+      ],
+      [
+        "terrace",
+        "transmission tower"
+      ],
+      [
+        "track",
+        "transmission tower"
+      ]
+    ],
+    "statistical_exclusion": [
+      [
+        "airport",
+        "baseball diamond"
+      ],
+      [
+        "airport",
+        "beach"
+      ],
+      [
+        "airport",
+        "bridge"
+      ],
+      [
+        "airport",
+        "containers"
+      ],
+      [
+        "airport",
+        "dense residential area"
+      ],
+      [
+        "airport",
+        "dock"
+      ],
+      [
+        "airport",
+        "factory"
+      ],
+      [
+        "airport",
+        "freeway"
+      ],
+      [
+        "airport",
+        "golf course"
+      ],
+      [
+        "airport",
+        "greenhouse"
+      ],
+      [
+        "airport",
+        "gully"
+      ],
+      [
+        "airport",
+        "lake"
+      ],
+      [
+        "airport",
+        "overpass"
+      ],
+      [
+        "airport",
+        "park"
+      ],
+      [
+        "airport",
+        "parkway"
+      ],
+      [
+        "airport",
+        "railway"
+      ],
+      [
+        "airport",
+        "railway station"
+      ],
+      [
+        "airport",
+        "river"
+      ],
+      [
+        "airport",
+        "road"
+      ],
+      [
+        "airport",
+        "sand"
+      ],
+      [
+        "airport",
+        "snow"
+      ],
+      [
+        "airport",
+        "snowberg"
+      ],
+      [
+        "airport",
+        "sparse residential area"
+      ],
+      [
+        "airport",
+        "swimming pool"
+      ],
+      [
+        "airport",
+        "tennis court"
+      ],
+      [
+        "airport",
+        "terrace"
+      ],
+      [
+        "airport",
+        "track"
+      ],
+      [
+        "airport",
+        "transmission tower"
+      ],
+      [
+        "baseball diamond",
+        "beach"
+      ],
+      [
+        "baseball diamond",
+        "bridge"
+      ],
+      [
+        "baseball diamond",
+        "containers"
+      ],
+      [
+        "baseball diamond",
+        "dense residential area"
+      ],
+      [
+        "baseball diamond",
+        "dock"
+      ],
+      [
+        "baseball diamond",
+        "factory"
+      ],
+      [
+        "baseball diamond",
+        "freeway"
+      ],
+      [
+        "baseball diamond",
+        "golf course"
+      ],
+      [
+        "baseball diamond",
+        "greenhouse"
+      ],
+      [
+        "baseball diamond",
+        "gully"
+      ],
+      [
+        "baseball diamond",
+        "lake"
+      ],
+      [
+        "baseball diamond",
+        "overpass"
+      ],
+      [
+        "baseball diamond",
+        "park"
+      ],
+      [
+        "baseball diamond",
+        "parkway"
+      ],
+      [
+        "baseball diamond",
+        "railway"
+      ],
+      [
+        "baseball diamond",
+        "railway station"
+      ],
+      [
+        "baseball diamond",
+        "river"
+      ],
+      [
+        "baseball diamond",
+        "runway"
+      ],
+      [
+        "baseball diamond",
+        "sand"
+      ],
+      [
+        "baseball diamond",
+        "snow"
+      ],
+      [
+        "baseball diamond",
+        "snowberg"
+      ],
+      [
+        "baseball diamond",
+        "sparse residential area"
+      ],
+      [
+        "baseball diamond",
+        "swimming pool"
+      ],
+      [
+        "baseball diamond",
+        "tennis court"
+      ],
+      [
+        "baseball diamond",
+        "terrace"
+      ],
+      [
+        "baseball diamond",
+        "track"
+      ],
+      [
+        "baseball diamond",
+        "transmission tower"
+      ],
+      [
+        "baseball diamond",
+        "water"
+      ],
+      [
+        "beach",
+        "bridge"
+      ],
+      [
+        "beach",
+        "containers"
+      ],
+      [
+        "beach",
+        "dense residential area"
+      ],
+      [
+        "beach",
+        "dock"
+      ],
+      [
+        "beach",
+        "factory"
+      ],
+      [
+        "beach",
+        "freeway"
+      ],
+      [
+        "beach",
+        "golf course"
+      ],
+      [
+        "beach",
+        "grass"
+      ],
+      [
+        "beach",
+        "greenhouse"
+      ],
+      [
+        "beach",
+        "gully"
+      ],
+      [
+        "beach",
+        "lake"
+      ],
+      [
+        "beach",
+        "overpass"
+      ],
+      [
+        "beach",
+        "park"
+      ],
+      [
+        "beach",
+        "parkway"
+      ],
+      [
+        "beach",
+        "railway"
+      ],
+      [
+        "beach",
+        "railway station"
+      ],
+      [
+        "beach",
+        "river"
+      ],
+      [
+        "beach",
+        "road"
+      ],
+      [
+        "beach",
+        "runway"
+      ],
+      [
+        "beach",
+        "snow"
+      ],
+      [
+        "beach",
+        "snowberg"
+      ],
+      [
+        "beach",
+        "sparse residential area"
+      ],
+      [
+        "beach",
+        "swimming pool"
+      ],
+      [
+        "beach",
+        "tennis court"
+      ],
+      [
+        "beach",
+        "terrace"
+      ],
+      [
+        "beach",
+        "track"
+      ],
+      [
+        "beach",
+        "transmission tower"
+      ],
+      [
+        "bridge",
+        "containers"
+      ],
+      [
+        "bridge",
+        "dense residential area"
+      ],
+      [
+        "bridge",
+        "dock"
+      ],
+      [
+        "bridge",
+        "factory"
+      ],
+      [
+        "bridge",
+        "freeway"
+      ],
+      [
+        "bridge",
+        "golf course"
+      ],
+      [
+        "bridge",
+        "greenhouse"
+      ],
+      [
+        "bridge",
+        "gully"
+      ],
+      [
+        "bridge",
+        "lake"
+      ],
+      [
+        "bridge",
+        "overpass"
+      ],
+      [
+        "bridge",
+        "park"
+      ],
+      [
+        "bridge",
+        "parkway"
+      ],
+      [
+        "bridge",
+        "railway"
+      ],
+      [
+        "bridge",
+        "railway station"
+      ],
+      [
+        "bridge",
+        "runway"
+      ],
+      [
+        "bridge",
+        "snow"
+      ],
+      [
+        "bridge",
+        "snowberg"
+      ],
+      [
+        "bridge",
+        "sparse residential area"
+      ],
+      [
+        "bridge",
+        "swimming pool"
+      ],
+      [
+        "bridge",
+        "tennis court"
+      ],
+      [
+        "bridge",
+        "terrace"
+      ],
+      [
+        "bridge",
+        "track"
+      ],
+      [
+        "bridge",
+        "transmission tower"
+      ],
+      [
+        "buildings",
+        "containers"
+      ],
+      [
+        "containers",
+        "grass"
+      ],
+      [
+        "containers",
+        "railway"
+      ],
+      [
+        "containers",
+        "road"
+      ],
+      [
+        "containers",
+        "runway"
+      ],
+      [
+        "containers",
+        "sand"
+      ],
+      [
+        "containers",
+        "snow"
+      ],
+      [
+        "containers",
+        "snowberg"
+      ],
+      [
+        "containers",
+        "sparse residential area"
+      ],
+      [
+        "containers",
+        "swimming pool"
+      ],
+      [
+        "containers",
+        "tennis court"
+      ],
+      [
+        "containers",
+        "terrace"
+      ],
+      [
+        "containers",
+        "track"
+      ],
+      [
+        "containers",
+        "transmission tower"
+      ],
+      [
+        "containers",
+        "trees"
+      ],
+      [
+        "containers",
+        "water"
+      ],
+      [
+        "dense residential area",
+        "railway"
+      ],
+      [
+        "dense residential area",
+        "runway"
+      ],
+      [
+        "dense residential area",
+        "sand"
+      ],
+      [
+        "dense residential area",
+        "snow"
+      ],
+      [
+        "dense residential area",
+        "snowberg"
+      ],
+      [
+        "dense residential area",
+        "sparse residential area"
+      ],
+      [
+        "dense residential area",
+        "tennis court"
+      ],
+      [
+        "dense residential area",
+        "terrace"
+      ],
+      [
+        "dense residential area",
+        "track"
+      ],
+      [
+        "dense residential area",
+        "transmission tower"
+      ],
+      [
+        "dock",
+        "railway"
+      ],
+      [
+        "dock",
+        "runway"
+      ],
+      [
+        "dock",
+        "sand"
+      ],
+      [
+        "dock",
+        "snow"
+      ],
+      [
+        "dock",
+        "snowberg"
+      ],
+      [
+        "dock",
+        "sparse residential area"
+      ],
+      [
+        "dock",
+        "tennis court"
+      ],
+      [
+        "dock",
+        "terrace"
+      ],
+      [
+        "dock",
+        "track"
+      ],
+      [
+        "dock",
+        "transmission tower"
+      ],
+      [
+        "dock",
+        "trees"
+      ],
+      [
+        "factory",
+        "water"
+      ],
+      [
+        "freeway",
+        "railway"
+      ],
+      [
+        "freeway",
+        "runway"
+      ],
+      [
+        "freeway",
+        "sand"
+      ],
+      [
+        "freeway",
+        "snow"
+      ],
+      [
+        "freeway",
+        "snowberg"
+      ],
+      [
+        "freeway",
+        "sparse residential area"
+      ],
+      [
+        "freeway",
+        "swimming pool"
+      ],
+      [
+        "freeway",
+        "tennis court"
+      ],
+      [
+        "freeway",
+        "terrace"
+      ],
+      [
+        "freeway",
+        "track"
+      ],
+      [
+        "freeway",
+        "transmission tower"
+      ],
+      [
+        "freeway",
+        "water"
+      ],
+      [
+        "golf course",
+        "railway"
+      ],
+      [
+        "golf course",
+        "runway"
+      ],
+      [
+        "golf course",
+        "sand"
+      ],
+      [
+        "golf course",
+        "snow"
+      ],
+      [
+        "golf course",
+        "snowberg"
+      ],
+      [
+        "golf course",
+        "sparse residential area"
+      ],
+      [
+        "golf course",
+        "tennis court"
+      ],
+      [
+        "golf course",
+        "terrace"
+      ],
+      [
+        "golf course",
+        "track"
+      ],
+      [
+        "golf course",
+        "transmission tower"
+      ],
+      [
+        "gully",
+        "water"
+      ],
+      [
+        "overpass",
+        "water"
+      ],
+      [
+        "parkway",
+        "water"
+      ],
+      [
+        "terrace",
+        "water"
+      ],
+      [
+        "track",
+        "water"
+      ],
+      [
+        "transmission tower",
+        "water"
+      ]
+    ],
+    "hierarchical": [
+      [
+        "airport",
+        "buildings"
+      ],
+      [
+        "dense residential area",
+        "buildings"
+      ],
+      [
+        "factory",
+        "buildings"
+      ],
+      [
+        "overpass",
+        "buildings"
+      ],
+      [
+        "park",
+        "buildings"
+      ],
+      [
+        "parkway",
+        "buildings"
+      ],
+      [
+        "railway station",
+        "buildings"
+      ],
+      [
+        "runway",
+        "buildings"
+      ],
+      [
+        "sparse residential area",
+        "buildings"
+      ],
+      [
+        "swimming pool",
+        "buildings"
+      ],
+      [
+        "track",
+        "buildings"
+      ],
+      [
+        "baseball diamond",
+        "grass"
+      ],
+      [
+        "bridge",
+        "grass"
+      ],
+      [
+        "dense residential area",
+        "grass"
+      ],
+      [
+        "golf course",
+        "grass"
+      ],
+      [
+        "bridge",
+        "road"
+      ],
+      [
+        "dense residential area",
+        "road"
+      ],
+      [
+        "dock",
+        "road"
+      ],
+      [
+        "freeway",
+        "road"
+      ],
+      [
+        "overpass",
+        "road"
+      ],
+      [
+        "track",
+        "road"
+      ],
+      [
+        "baseball diamond",
+        "trees"
+      ],
+      [
+        "bridge",
+        "trees"
+      ],
+      [
+        "dense residential area",
+        "trees"
+      ],
+      [
+        "freeway",
+        "trees"
+      ],
+      [
+        "golf course",
+        "trees"
+      ],
+      [
+        "overpass",
+        "trees"
+      ],
+      [
+        "park",
+        "trees"
+      ],
+      [
+        "parkway",
+        "trees"
+      ],
+      [
+        "railway",
+        "trees"
+      ],
+      [
+        "railway station",
+        "trees"
+      ],
+      [
+        "river",
+        "trees"
+      ],
+      [
+        "sparse residential area",
+        "trees"
+      ],
+      [
+        "swimming pool",
+        "trees"
+      ],
+      [
+        "tennis court",
+        "trees"
+      ],
+      [
+        "terrace",
+        "trees"
+      ],
+      [
+        "track",
+        "trees"
+      ],
+      [
+        "transmission tower",
+        "trees"
+      ],
+      [
+        "beach",
+        "water"
+      ],
+      [
+        "bridge",
+        "water"
+      ],
+      [
+        "dock",
+        "water"
+      ]
+    ],
+    "semantic_affinity": [
+      [
+        "airplane",
+        "airport"
+      ],
+      [
+        "airplane",
+        "road"
+      ],
+      [
+        "airplane",
+        "runway"
+      ],
+      [
+        "airport",
+        "baseball diamond"
+      ],
+      [
+        "airport",
+        "dock"
+      ],
+      [
+        "airport",
+        "factory"
+      ],
+      [
+        "airport",
+        "habor"
+      ],
+      [
+        "airport",
+        "railway station"
+      ],
+      [
+        "airport",
+        "road"
+      ],
+      [
+        "airport",
+        "runway"
+      ],
+      [
+        "airport",
+        "ships"
+      ],
+      [
+        "airport",
+        "wind turbine"
+      ],
+      [
+        "bare soil",
+        "gully"
+      ],
+      [
+        "bare soil",
+        "sand"
+      ],
+      [
+        "bare soil",
+        "track"
+      ],
+      [
+        "baseball diamond",
+        "basketball court"
+      ],
+      [
+        "baseball diamond",
+        "football field"
+      ],
+      [
+        "baseball diamond",
+        "park"
+      ],
+      [
+        "baseball diamond",
+        "sparse residential area"
+      ],
+      [
+        "baseball diamond",
+        "tennis court"
+      ],
+      [
+        "basketball court",
+        "park"
+      ],
+      [
+        "basketball court",
+        "tennis court"
+      ],
+      [
+        "beach",
+        "desert"
+      ],
+      [
+        "beach",
+        "island"
+      ],
+      [
+        "beach",
+        "road"
+      ],
+      [
+        "beach",
+        "sand"
+      ],
+      [
+        "beach",
+        "sea"
+      ],
+      [
+        "beach",
+        "water"
+      ],
+      [
+        "bridge",
+        "buildings"
+      ],
+      [
+        "bridge",
+        "dock"
+      ],
+      [
+        "bridge",
+        "overpass"
+      ],
+      [
+        "bridge",
+        "road"
+      ],
+      [
+        "buildings",
+        "cars"
+      ],
+      [
+        "buildings",
+        "containers"
+      ],
+      [
+        "buildings",
+        "dense residential area"
+      ],
+      [
+        "buildings",
+        "factory"
+      ],
+      [
+        "buildings",
+        "greenhouse"
+      ],
+      [
+        "buildings",
+        "mobile home"
+      ],
+      [
+        "buildings",
+        "parking lot"
+      ],
+      [
+        "buildings",
+        "ships"
+      ],
+      [
+        "buildings",
+        "sparse residential area"
+      ],
+      [
+        "buildings",
+        "swimming pool"
+      ],
+      [
+        "cars",
+        "park"
+      ],
+      [
+        "cars",
+        "road"
+      ],
+      [
+        "chaparral",
+        "gully"
+      ],
+      [
+        "chaparral",
+        "road"
+      ],
+      [
+        "chaparral",
+        "sparse residential area"
+      ],
+      [
+        "cloud",
+        "gully"
+      ],
+      [
+        "cloud",
+        "snow"
+      ],
+      [
+        "cloud",
+        "water"
+      ],
+      [
+        "containers",
+        "factory"
+      ],
+      [
+        "containers",
+        "sparse residential area"
+      ],
+      [
+        "crosswalk",
+        "overpass"
+      ],
+      [
+        "crosswalk",
+        "parkway"
+      ],
+      [
+        "crosswalk",
+        "road"
+      ],
+      [
+        "dense residential area",
+        "park"
+      ],
+      [
+        "dense residential area",
+        "sparse residential area"
+      ],
+      [
+        "desert",
+        "gully"
+      ],
+      [
+        "desert",
+        "sand"
+      ],
+      [
+        "dock",
+        "habor"
+      ],
+      [
+        "dock",
+        "water"
+      ],
+      [
+        "factory",
+        "greenhouse"
+      ],
+      [
+        "factory",
+        "railway station"
+      ],
+      [
+        "factory",
+        "sparse residential area"
+      ],
+      [
+        "field",
+        "grass"
+      ],
+      [
+        "field",
+        "park"
+      ],
+      [
+        "field",
+        "road"
+      ],
+      [
+        "football field",
+        "grass"
+      ],
+      [
+        "football field",
+        "tennis court"
+      ],
+      [
+        "forest",
+        "gully"
+      ],
+      [
+        "forest",
+        "park"
+      ],
+      [
+        "forest",
+        "trees"
+      ],
+      [
+        "freeway",
+        "overpass"
+      ],
+      [
+        "freeway",
+        "parkway"
+      ],
+      [
+        "freeway",
+        "road"
+      ],
+      [
+        "golf course",
+        "grass"
+      ],
+      [
+        "golf course",
+        "gully"
+      ],
+      [
+        "golf course",
+        "park"
+      ],
+      [
+        "grass",
+        "gully"
+      ],
+      [
+        "grass",
+        "park"
+      ],
+      [
+        "grass",
+        "road"
+      ],
+      [
+        "greenhouse",
+        "sparse residential area"
+      ],
+      [
+        "gully",
+        "island"
+      ],
+      [
+        "gully",
+        "mountain"
+      ],
+      [
+        "gully",
+        "parkway"
+      ],
+      [
+        "gully",
+        "pavement"
+      ],
+      [
+        "gully",
+        "river"
+      ],
+      [
+        "gully",
+        "road"
+      ],
+      [
+        "gully",
+        "sand"
+      ],
+      [
+        "gully",
+        "sea"
+      ],
+      [
+        "gully",
+        "snow"
+      ],
+      [
+        "gully",
+        "snowberg"
+      ],
+      [
+        "gully",
+        "terrace"
+      ],
+      [
+        "gully",
+        "track"
+      ],
+      [
+        "gully",
+        "trail"
+      ],
+      [
+        "gully",
+        "trees"
+      ],
+      [
+        "gully",
+        "water"
+      ],
+      [
+        "gully",
+        "wetland"
+      ],
+      [
+        "habor",
+        "water"
+      ],
+      [
+        "intersection",
+        "overpass"
+      ],
+      [
+        "intersection",
+        "road"
+      ],
+      [
+        "intersection",
+        "sparse residential area"
+      ],
+      [
+        "island",
+        "water"
+      ],
+      [
+        "lake",
+        "park"
+      ],
+      [
+        "lake",
+        "river"
+      ],
+      [
+        "lake",
+        "water"
+      ],
+      [
+        "lake",
+        "wetland"
+      ],
+      [
+        "mobile home",
+        "road"
+      ],
+      [
+        "mobile home",
+        "sparse residential area"
+      ],
+      [
+        "mountain",
+        "snow"
+      ],
+      [
+        "mountain",
+        "snowberg"
+      ],
+      [
+        "overpass",
+        "road"
+      ],
+      [
+        "park",
+        "parking lot"
+      ],
+      [
+        "park",
+        "parkway"
+      ],
+      [
+        "park",
+        "road"
+      ],
+      [
+        "park",
+        "roundabout"
+      ],
+      [
+        "park",
+        "sparse residential area"
+      ],
+      [
+        "park",
+        "swimming pool"
+      ],
+      [
+        "park",
+        "tennis court"
+      ],
+      [
+        "park",
+        "trees"
+      ],
+      [
+        "parking lot",
+        "road"
+      ],
+      [
+        "parkway",
+        "pavement"
+      ],
+      [
+        "parkway",
+        "road"
+      ],
+      [
+        "pavement",
+        "road"
+      ],
+      [
+        "railway",
+        "railway station"
+      ],
+      [
+        "railway",
+        "road"
+      ],
+      [
+        "railway",
+        "runway"
+      ],
+      [
+        "railway",
+        "track"
+      ],
+      [
+        "railway",
+        "transmission tower"
+      ],
+      [
+        "river",
+        "road"
+      ],
+      [
+        "river",
+        "water"
+      ],
+      [
+        "road",
+        "roundabout"
+      ],
+      [
+        "road",
+        "runway"
+      ],
+      [
+        "road",
+        "track"
+      ],
+      [
+        "road",
+        "trail"
+      ],
+      [
+        "road",
+        "transmission tower"
+      ],
+      [
+        "road",
+        "trees"
+      ],
+      [
+        "road",
+        "wind turbine"
+      ],
+      [
+        "roundabout",
+        "sparse residential area"
+      ],
+      [
+        "sand",
+        "water"
+      ],
+      [
+        "sea",
+        "water"
+      ],
+      [
+        "ships",
+        "water"
+      ],
+      [
+        "snow",
+        "snowberg"
+      ],
+      [
+        "snow",
+        "water"
+      ],
+      [
+        "snowberg",
+        "water"
+      ],
+      [
+        "sparse residential area",
+        "terrace"
+      ],
+      [
+        "swimming pool",
+        "tennis court"
+      ],
+      [
+        "swimming pool",
+        "water"
+      ],
+      [
+        "terrace",
+        "track"
+      ],
+      [
+        "track",
+        "trail"
+      ],
+      [
+        "track",
+        "transmission tower"
+      ],
+      [
+        "transmission tower",
+        "wind turbine"
+      ],
+      [
+        "water",
+        "wetland"
+      ]
+    ]
+  },
+  "edge_counts": {
+    "often_cooccur": 140,
+    "statistical_exclusion": 172,
+    "hierarchical": 41
+  },
+  "label_to_index": {
+    "airplane": 0,
+    "airport": 1,
+    "bare soil": 2,
+    "baseball diamond": 3,
+    "basketball court": 4,
+    "beach": 5,
+    "bridge": 6,
+    "buildings": 7,
+    "cars": 8,
+    "chaparral": 9,
+    "cloud": 10,
+    "containers": 11,
+    "crosswalk": 12,
+    "dense residential area": 13,
+    "desert": 14,
+    "dock": 15,
+    "factory": 16,
+    "field": 17,
+    "football field": 18,
+    "forest": 19,
+    "freeway": 20,
+    "golf course": 21,
+    "grass": 22,
+    "greenhouse": 23,
+    "gully": 24,
+    "habor": 25,
+    "intersection": 26,
+    "island": 27,
+    "lake": 28,
+    "mobile home": 29,
+    "mountain": 30,
+    "overpass": 31,
+    "park": 32,
+    "parking lot": 33,
+    "parkway": 34,
+    "pavement": 35,
+    "railway": 36,
+    "railway station": 37,
+    "river": 38,
+    "road": 39,
+    "roundabout": 40,
+    "runway": 41,
+    "sand": 42,
+    "sea": 43,
+    "ships": 44,
+    "snow": 45,
+    "snowberg": 46,
+    "sparse residential area": 47,
+    "swimming pool": 48,
+    "tennis court": 49,
+    "terrace": 50,
+    "track": 51,
+    "trail": 52,
+    "transmission tower": 53,
+    "trees": 54,
+    "water": 55,
+    "wetland": 56,
+    "wind turbine": 57
+  },
+  "thresholds_used": {
+    "often_pmi": 2.5,
+    "often_min_cooccur": 50,
+    "exclusion_pmi": -2.0,
+    "exclusion_min_freq": 100,
+    "hier_conditional_high": 0.8,
+    "hier_conditional_low": 0.3
+  },
+  "merged_labels": [],
+  "hierarchical_edge_format": "child_to_parent",
+  "edge_provenance": {
+    "schema_version": 1,
+    "protocol_mode": "strict_train_seen_only_v1",
+    "statistics_scope": "train_samples_seen_labels_only",
+    "source": {
+      "kind": "train_feature_cache",
+      "image_split_manifest": {
+        "kind": "embedded_train_feature_cache_manifest",
+        "declared_split": "train"
+      }
+    },
+    "allowed_seen_labels": [
+      "airport",
+      "baseball diamond",
+      "beach",
+      "bridge",
+      "buildings",
+      "containers",
+      "dense residential area",
+      "dock",
+      "factory",
+      "freeway",
+      "golf course",
+      "grass",
+      "greenhouse",
+      "gully",
+      "lake",
+      "overpass",
+      "park",
+      "parkway",
+      "railway",
+      "railway station",
+      "river",
+      "road",
+      "runway",
+      "sand",
+      "snow",
+      "snowberg",
+      "sparse residential area",
+      "swimming pool",
+      "tennis court",
+      "terrace",
+      "track",
+      "transmission tower",
+      "trees",
+      "water"
+    ],
+    "allowed_seen_labels_provenance": {
+      "kind": "file",
+      "file_sha256": "976dcc0050029f1de3445ad22f36eb8d12641ce8f70c2654ad3fec38b2c3892d",
+      "seen_labels_sha256": "8c8939632e4e85c8397990128575db1b5426dae2257e527d2c0b836f5e6a998a",
+      "label_names_sha256": "01169d1835d1aa8089c9a6df2a166986eb67709d5da4bfabe92ae265dd84367b"
+    },
+    "node_labels_sha256": "01169d1835d1aa8089c9a6df2a166986eb67709d5da4bfabe92ae265dd84367b",
+    "statistics_labels_sha256": "8c8939632e4e85c8397990128575db1b5426dae2257e527d2c0b836f5e6a998a",
+    "relations": {
+      "often_cooccur": {
+        "criterion": "PMI > 2.5 and joint count > 50",
+        "edge_count": 140,
+        "edges_sha256": "c8eead67d4bcfcd369d2d9e0e38f226186148087ebe51056915a6474b912c04a"
+      },
+      "statistical_exclusion": {
+        "criterion": "both counts > 100 and (joint count = 0 or PMI < -2.0)",
+        "edge_count": 172,
+        "edges_sha256": "df62bdcdadfc40ddbb7df70ee861bdc24b0be2d52a852836194ff7130744bfcc"
+      },
+      "hierarchical": {
+        "criterion": "P(parent|child) > 0.8 and P(child|parent) < 0.3",
+        "edge_count": 41,
+        "edges_sha256": "0f3f2b95dbf4cb53b73ddc2640320ab3b32946f9e4eaae2044e586c1fac80547"
+      }
+    }
+  },
+  "relation_provenance": {
+    "semantic_affinity": {
+      "annotation_independent": true,
+      "source": "basic_text_anchor_cosine",
+      "top_k": 3,
+      "unseen_neighbor_scope": "outer_seen_only",
+      "text_anchors_sha256": "6b8d597f2a32a6772e20ac8730d0af08d28c209fee136286d93911d883321761",
+      "outer_split_sha256": "976dcc0050029f1de3445ad22f36eb8d12641ce8f70c2654ad3fec38b2c3892d"
+    }
+  }
+}

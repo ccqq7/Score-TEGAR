@@ -1,0 +1,2 @@
+# Preserve archived bytes so the published SHA-256 manifest is portable.
+artifacts/strict_v1/** -text whitespace=cr-at-eol

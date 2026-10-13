@@ -1,0 +1,15 @@
+numpy
+pandas
+pyarrow==21.0.0
+PyYAML
+Pillow
+scikit-learn
+scipy
+matplotlib
+seaborn
+tqdm
+torch
+torchvision
+open_clip_torch
+openpyxl
+pytest

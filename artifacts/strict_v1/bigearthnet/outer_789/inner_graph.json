@@ -1,0 +1,352 @@
+{
+  "schema_version": 2,
+  "protocol_mode": "strict_train_seen_plus_text_affinity_v1",
+  "dataset": "bigearthnet",
+  "nodes": [
+    "Urban fabric",
+    "Industrial or commercial units",
+    "Arable land",
+    "Permanent crops",
+    "Pastures",
+    "Complex cultivation patterns",
+    "Land principally occupied by agriculture, with significant areas of natural vegetation",
+    "Agro-forestry areas",
+    "Broad-leaved forest",
+    "Coniferous forest",
+    "Mixed forest",
+    "Natural grassland and sparsely vegetated areas",
+    "Moors, heathland and sclerophyllous vegetation",
+    "Transitional woodland, shrub",
+    "Beaches, dunes, sands",
+    "Inland wetlands",
+    "Coastal wetlands",
+    "Inland waters",
+    "Marine waters"
+  ],
+  "node_count": 19,
+  "edges": {
+    "often_cooccur": [
+      [
+        "Beaches, dunes, sands",
+        "Coastal wetlands"
+      ],
+      [
+        "Beaches, dunes, sands",
+        "Marine waters"
+      ]
+    ],
+    "statistical_exclusion": [
+      [
+        "Industrial or commercial units",
+        "Marine waters"
+      ],
+      [
+        "Pastures",
+        "Marine waters"
+      ],
+      [
+        "Complex cultivation patterns",
+        "Marine waters"
+      ],
+      [
+        "Coniferous forest",
+        "Marine waters"
+      ],
+      [
+        "Mixed forest",
+        "Marine waters"
+      ],
+      [
+        "Natural grassland and sparsely vegetated areas",
+        "Marine waters"
+      ],
+      [
+        "Transitional woodland, shrub",
+        "Marine waters"
+      ],
+      [
+        "Inland wetlands",
+        "Marine waters"
+      ]
+    ],
+    "hierarchical": [],
+    "semantic_affinity": [
+      [
+        "Agro-forestry areas",
+        "Complex cultivation patterns"
+      ],
+      [
+        "Agro-forestry areas",
+        "Coniferous forest"
+      ],
+      [
+        "Agro-forestry areas",
+        "Mixed forest"
+      ],
+      [
+        "Arable land",
+        "Complex cultivation patterns"
+      ],
+      [
+        "Arable land",
+        "Natural grassland and sparsely vegetated areas"
+      ],
+      [
+        "Arable land",
+        "Transitional woodland, shrub"
+      ],
+      [
+        "Beaches, dunes, sands",
+        "Coastal wetlands"
+      ],
+      [
+        "Beaches, dunes, sands",
+        "Marine waters"
+      ],
+      [
+        "Beaches, dunes, sands",
+        "Natural grassland and sparsely vegetated areas"
+      ],
+      [
+        "Broad-leaved forest",
+        "Coniferous forest"
+      ],
+      [
+        "Broad-leaved forest",
+        "Mixed forest"
+      ],
+      [
+        "Broad-leaved forest",
+        "Transitional woodland, shrub"
+      ],
+      [
+        "Coastal wetlands",
+        "Inland waters"
+      ],
+      [
+        "Coastal wetlands",
+        "Inland wetlands"
+      ],
+      [
+        "Coastal wetlands",
+        "Marine waters"
+      ],
+      [
+        "Coastal wetlands",
+        "Natural grassland and sparsely vegetated areas"
+      ],
+      [
+        "Complex cultivation patterns",
+        "Coniferous forest"
+      ],
+      [
+        "Complex cultivation patterns",
+        "Industrial or commercial units"
+      ],
+      [
+        "Complex cultivation patterns",
+        "Land principally occupied by agriculture, with significant areas of natural vegetation"
+      ],
+      [
+        "Complex cultivation patterns",
+        "Mixed forest"
+      ],
+      [
+        "Complex cultivation patterns",
+        "Natural grassland and sparsely vegetated areas"
+      ],
+      [
+        "Complex cultivation patterns",
+        "Pastures"
+      ],
+      [
+        "Complex cultivation patterns",
+        "Permanent crops"
+      ],
+      [
+        "Complex cultivation patterns",
+        "Urban fabric"
+      ],
+      [
+        "Coniferous forest",
+        "Mixed forest"
+      ],
+      [
+        "Coniferous forest",
+        "Moors, heathland and sclerophyllous vegetation"
+      ],
+      [
+        "Coniferous forest",
+        "Transitional woodland, shrub"
+      ],
+      [
+        "Industrial or commercial units",
+        "Marine waters"
+      ],
+      [
+        "Industrial or commercial units",
+        "Pastures"
+      ],
+      [
+        "Industrial or commercial units",
+        "Permanent crops"
+      ],
+      [
+        "Industrial or commercial units",
+        "Urban fabric"
+      ],
+      [
+        "Inland waters",
+        "Inland wetlands"
+      ],
+      [
+        "Inland waters",
+        "Marine waters"
+      ],
+      [
+        "Inland wetlands",
+        "Marine waters"
+      ],
+      [
+        "Inland wetlands",
+        "Natural grassland and sparsely vegetated areas"
+      ],
+      [
+        "Inland wetlands",
+        "Pastures"
+      ],
+      [
+        "Land principally occupied by agriculture, with significant areas of natural vegetation",
+        "Natural grassland and sparsely vegetated areas"
+      ],
+      [
+        "Land principally occupied by agriculture, with significant areas of natural vegetation",
+        "Transitional woodland, shrub"
+      ],
+      [
+        "Marine waters",
+        "Urban fabric"
+      ],
+      [
+        "Mixed forest",
+        "Transitional woodland, shrub"
+      ],
+      [
+        "Moors, heathland and sclerophyllous vegetation",
+        "Natural grassland and sparsely vegetated areas"
+      ],
+      [
+        "Moors, heathland and sclerophyllous vegetation",
+        "Transitional woodland, shrub"
+      ],
+      [
+        "Natural grassland and sparsely vegetated areas",
+        "Pastures"
+      ],
+      [
+        "Natural grassland and sparsely vegetated areas",
+        "Transitional woodland, shrub"
+      ],
+      [
+        "Pastures",
+        "Permanent crops"
+      ]
+    ]
+  },
+  "edge_counts": {
+    "often_cooccur": 2,
+    "statistical_exclusion": 8,
+    "hierarchical": 0
+  },
+  "label_to_index": {
+    "Urban fabric": 0,
+    "Industrial or commercial units": 1,
+    "Arable land": 2,
+    "Permanent crops": 3,
+    "Pastures": 4,
+    "Complex cultivation patterns": 5,
+    "Land principally occupied by agriculture, with significant areas of natural vegetation": 6,
+    "Agro-forestry areas": 7,
+    "Broad-leaved forest": 8,
+    "Coniferous forest": 9,
+    "Mixed forest": 10,
+    "Natural grassland and sparsely vegetated areas": 11,
+    "Moors, heathland and sclerophyllous vegetation": 12,
+    "Transitional woodland, shrub": 13,
+    "Beaches, dunes, sands": 14,
+    "Inland wetlands": 15,
+    "Coastal wetlands": 16,
+    "Inland waters": 17,
+    "Marine waters": 18
+  },
+  "thresholds_used": {
+    "often_pmi": 2.5,
+    "often_min_cooccur": 50,
+    "exclusion_pmi": -2.0,
+    "exclusion_min_freq": 100,
+    "hier_conditional_high": 0.8,
+    "hier_conditional_low": 0.3
+  },
+  "merged_labels": [],
+  "hierarchical_edge_format": "child_to_parent",
+  "edge_provenance": {
+    "schema_version": 1,
+    "protocol_mode": "strict_train_seen_only_v1",
+    "statistics_scope": "train_samples_seen_labels_only",
+    "source": {
+      "kind": "train_feature_cache",
+      "image_split_manifest": {
+        "kind": "embedded_train_feature_cache_manifest",
+        "declared_split": "train"
+      }
+    },
+    "allowed_seen_labels": [
+      "Industrial or commercial units",
+      "Pastures",
+      "Complex cultivation patterns",
+      "Coniferous forest",
+      "Mixed forest",
+      "Natural grassland and sparsely vegetated areas",
+      "Transitional woodland, shrub",
+      "Beaches, dunes, sands",
+      "Inland wetlands",
+      "Coastal wetlands",
+      "Marine waters"
+    ],
+    "allowed_seen_labels_provenance": {
+      "kind": "file",
+      "file_sha256": "f7291bbf4046b03518bdd889f74d725c51f9ddf3a9a3c74926b8a5f494ce6cef",
+      "seen_labels_sha256": "c0291110acd7337a48635a662df7c9d567e6f0623277673f9dc89d21eee8582d",
+      "label_names_sha256": "71d9daf909176004891661f3d3f671c3931d77cf4417cd827f15f3ff5a4df676"
+    },
+    "node_labels_sha256": "71d9daf909176004891661f3d3f671c3931d77cf4417cd827f15f3ff5a4df676",
+    "statistics_labels_sha256": "c0291110acd7337a48635a662df7c9d567e6f0623277673f9dc89d21eee8582d",
+    "relations": {
+      "often_cooccur": {
+        "criterion": "PMI > 2.5 and joint count > 50",
+        "edge_count": 2,
+        "edges_sha256": "eb3fb6ba8f4eb68a42fd090df4b9ebc2a89ba67231492690713925d280c08bcf"
+      },
+      "statistical_exclusion": {
+        "criterion": "both counts > 100 and (joint count = 0 or PMI < -2.0)",
+        "edge_count": 8,
+        "edges_sha256": "51c10ebca8334a96c8502b13ec6b76e1043e3c89a532ba8174744bac9b927d23"
+      },
+      "hierarchical": {
+        "criterion": "P(parent|child) > 0.8 and P(child|parent) < 0.3",
+        "edge_count": 0,
+        "edges_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      }
+    }
+  },
+  "relation_provenance": {
+    "semantic_affinity": {
+      "annotation_independent": true,
+      "source": "basic_text_anchor_cosine",
+      "top_k": 3,
+      "unseen_neighbor_scope": "outer_seen_only",
+      "text_anchors_sha256": "f2c7ac83a620707d306c3f66fccf04da5087c332517b213e3e34dfc16b062a63",
+      "outer_split_sha256": "f7291bbf4046b03518bdd889f74d725c51f9ddf3a9a3c74926b8a5f494ce6cef"
+    }
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "schema_version": 2,
+  "protocol_mode": "strict_outer_random_v1",
+  "selection_policy": "uniform_without_replacement",
+  "dataset": "chinamas",
+  "seed": 789,
+  "rng": "numpy.random.Generator(PCG64)",
+  "n_labels": 18,
+  "n_seen": 13,
+  "n_unseen": 5,
+  "excluded": [],
+  "label_names": [
+    "Grassland",
+    "Factory Building",
+    "Greenhouse",
+    "Solid Waste",
+    "Cropland",
+    "Road",
+    "Park",
+    "River",
+    "Lake/Pond",
+    "Woodland",
+    "Basketball Court",
+    "Bare Land",
+    "Dust-proof Net",
+    "Plastic Mulch",
+    "Photovoltaic",
+    "Railway",
+    "Football Field",
+    "Rural Village"
+  ],
+  "label_vocabulary": {
+    "file_sha256": "fb0fb8f9760ff40c6d89b97f8b012c8ea1d7d46a535f1b9cb9eec6592a341521",
+    "label_names_sha256": "f0be30a8fe9db03e8afcc772a97a9e24433dd8617015f465cec6b0e0d3071433",
+    "source": "train_feature_cache_label_names"
+  },
+  "selection_inputs": [
+    "label_names",
+    "seed",
+    "n_unseen"
+  ],
+  "seen_labels": [
+    "Grassland",
+    "Factory Building",
+    "Solid Waste",
+    "Cropland",
+    "Road",
+    "Park",
+    "River",
+    "Lake/Pond",
+    "Bare Land",
+    "Plastic Mulch",
+    "Photovoltaic",
+    "Railway",
+    "Football Field"
+  ],
+  "unseen_labels": [
+    "Greenhouse",
+    "Woodland",
+    "Basketball Court",
+    "Dust-proof Net",
+    "Rural Village"
+  ]
+}
